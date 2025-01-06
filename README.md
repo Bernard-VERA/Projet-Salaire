@@ -28,9 +28,16 @@ La création de cette page web me permettra d’améliorer mes compétences tech
 * Formulations complexes pour calculer les sommes et montants automatiquement.
 * Mise en place d'une interface utilisateur simple et esthétique avec HTML et CSS.
 * Intégration d'une fonction qui permet d'éditer puis d'imprimer le bulletin de salaire.
+* S'agissant de formulaires, mise en place d'une sécurité contre les attaques XSS.
 * Tests pour s'assurer que le site fonctionne comme prévu dans différents navigateurs et sur différentes tailles d'écran.
 
 --------
+
+
+Vous pouvez suivre l'avancement du projet à l'adresse suivante : https://bernard-vera.github.io/Projet-Salaire/
+
+--------
+
 
 <p align="center" width="100%">
     <img width="90%" src="https://github.com/Bernard-VERA/Projet-Salaire/blob/main/images/bulletin.jpg"> 
