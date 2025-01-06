@@ -38,8 +38,11 @@ function calculateContributions() {
 function generatePayslip() {
     const employerName = document.getElementById('employer-name').value;
     const employerAddress = document.getElementById('employer-address').value;
+    const employerNumber = document.getElementById('employer-number').value;
     const employeeName = document.getElementById('employee-name').value;
     const employeePosition = document.getElementById('employee-position').value;
+    const employeeNumber = document.getElementById('employee-number').value;
+    const socialSecurity = document.getElementById('social-security').value;
     const grossSalary = document.getElementById('gross-salary').value;
     const netSalary = document.getElementById('net-salary').value;
     const csgRdsNonDeductible = document.getElementById('csg-rds-non-deductible').value;
@@ -53,12 +56,15 @@ function generatePayslip() {
         <h2>Bulletin de Salaire</h2>
         <div class=employgroup>
         <div class="groupbox">
-        <p>Employeur: ${employerName}</p>
+        <p>Employeur(se): ${employerName}</p>
         <p>Adresse: ${employerAddress}</p>
+        <p>Numéro: ${employerNumber}</p>
         </div>
         <div class="groupbox">
-        <p>Employé: ${employeeName}</p>
+        <p>Employé(e): ${employeeName}</p>
         <p>Poste: ${employeePosition}</p>
+        <p>Numéro: ${employeeNumber}</p>
+        <p>Numéro de SS: ${socialSecurity}</p>
         </div>
         </div>
         <p><strong>Salaire Brut:</strong> ${grossSalary} €</p>
