@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulletin de Salaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <main>
+            <h1>Bulletin de Salaire</h1>
+            <div class="form-group">
+                <label for="employer-name">Nom de l'employeur:</label>
+                <input type="text" id="employer-name" name="employer-name">
+            </div>
+            <div class="form-group">
+                <label for="employer-address">Adresse de l'employeur:</label>
+                <input type="text" id="employer-address" name="employer-address">
+            </div>
+            <div class="form-group">
+                <label for="employee-name">Nom de l'employé:</label>
+                <input type="text" id="employee-name" name="employee-name">
+            </div>
+            <div class="form-group">
+                <label for="employee-position">Poste de l'employé:</label>
+                <input type="text" id="employee-position" name="employee-position">
+            </div>
+            <div class="form-group">
+                <label for="gross-salary">Salaire Brut:</label>
+                <input type="number" id="gross-salary" name="gross-salary" oninput="calculateContributions()">
+            </div>
+            <div class="form-group">
+                <label for="net-salary">Salaire Net:</label>
+                <input type="number" id="net-salary" name="net-salary" readonly>
+            </div>
+            <div class="form-group no-show">
+                <label for="csg-rds-non-deductible">CSG + RDS non déductible:</label>
+                <input type="number" id="csg-rds-non-deductible" name="csg-rds-non-deductible" readonly>
+            </div>
+            <div class="form-group no-show">
+                <label for="csg-deductible">CSG déductible:</label>
+                <input type="number" id="csg-deductible" name="csg-deductible" readonly>
+            </div>
+            <div class="form-group no-show">
+                <label for="vieillesse">Vieillesse:</label>
+                <input type="number" id="vieillesse" name="vieillesse" readonly>
+            </div>
+            <div class="form-group no-show">
+                <label for="maladie">Maladie:</label>
+                <input type="number" id="maladie" name="maladie" readonly>
+            </div>
+            <div class="form-group no-show">
+                <label for="retraite">Retraite:</label>
+                <input type="number" id="retraite" name="retraite" readonly>
+            </div>
+            <div class="form-group no-show">
+                <label for="prevoyance">Prévoyance:</label>
+                <input type="number" id="prevoyance" name="prevoyance" readonly>
+            </div>
+            <div class="form-group">
+                <label for="total-employee-contributions">Total Cotisations Salariales:</label>
+                <input type="number" id="total-employee-contributions" name="total-employee-contributions" readonly>
+            </div>
+            <div class="form-group">
+                <button onclick="generatePayslip()">Générer le Bulletin</button>
+            </div>
+            <div id="payslip"></div>
+        </main>
+        <footer>
+        </footer>
+    </div>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.js"></script>
+</body>
+</html>
