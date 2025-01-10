@@ -104,44 +104,44 @@ function generatePayslip() {
 
     const payslip = `
         <h2>Bulletin de Salaire</h2>
-        <div class=employgroup>
+        <div class="employgroup">
+            <div class="groupbox">
+                <p>Employeur(se) : ${employerName}</p>
+                <p>Adresse : ${employerAddress}</p>
+                <p>Numéro : ${employerNumber}</p>
+            </div>
+            <div class="groupbox">
+                <p>Employé(e) : ${employeeName}</p>
+                <p>Poste : ${employeePosition}</p>
+                <p>Numéro : ${employeeNumber}</p>
+                <p>Numéro de SS : ${socialSecurity}</p>
+            </div>
+        </div>
+        <p><strong>Salaire Brut : <span style="float: right;">${grossSalary} €</span></strong></p>
         <div class="groupbox">
-        <p>Employeur(se) : ${employerName}</p>
-        <p>Adresse : ${employerAddress}</p>
-        <p>Numéro : ${employerNumber}</p>
+            <p>CSG/RDS non déductible : <span style="float: right;">${csgRdsNonDeductible} €</span></p>
+            <p>CSG déductible : <span style="float: right;">${csgDeductible} €</span></p>
+            <p>Vieillesse : <span style="float: right;">${vieillesse} €</span></p>
+            <p>Maladie : <span style="float: right;">${maladie} €</span></p>
+            <p>Retraite : <span style="float: right;">${retraite} €</span></p>
+            <p>Prévoyance : <span style="float: right;">${prevoyance} €</span></p>
+            <p><strong>Total Cotisations Salariales :</strong> <span style="float: right;">${totalEmployeeContributions} €</span></p>
         </div>
         <div class="groupbox">
-        <p>Employé(e) : ${employeeName}</p>
-        <p>Poste : ${employeePosition}</p>
-        <p>Numéro : ${employeeNumber}</p>
-        <p>Numéro de SS : ${socialSecurity}</p>
+            <p>Maladie : <span style="float: right;">${employerMaladie} €</span></p>
+            <p>Vieillesse : <span style="float: right;">${employerVieillesse} €</span></p>
+            <p>Alloc. Familiales : <span style="float: right;">${employerAllocFamiliales} €</span></p>
+            <p>Accident du travail : <span style="float: right;">${employerAccident} €</span></p>
+            <p>FNAL : <span style="float: right;">${employerFnal} €</span></p>
+            <p>CSA : <span style="float: right;">${employerCsa} €</span></p>
+            <p>Formation professionnelle : <span style="float: right;">${employerFormation} €</span></p>
+            <p>Dialogue social : <span style="float: right;">${employerDialogue} €</span></p>
+            <p>Retraite complémentaire : <span style="float: right;">${employerComplementaire} €</span></p>
+            <p>Prévoyance : <span style="float: right;">${employerPrevoyance} €</span></p>
+            <p>Assurance chômage : <span style="float: right;">${employerChomage} €</span></p>
+            <p><strong>Total Cotisations Patronales :</strong> <span style="float: right;">${totalEmployerContributions} €</span></p>
         </div>
-        </div>
-        <p><strong>Salaire Brut :</strong> ${grossSalary} €</p>
-        <div class="groupbox">
-        <p>CSG/RDS non déductible : ${csgRdsNonDeductible} €</p>
-        <p>CSG déductible : ${csgDeductible} €</p>
-        <p>Vieillesse : ${vieillesse} €</p>
-        <p>Maladie : ${maladie} €</p>
-        <p>Retraite: ${retraite} €</p>
-        <p>Prévoyance : ${prevoyance} €</p>
-        <p><strong>Total Cotisations Salariales :</strong> ${totalEmployeeContributions} €</p>
-        </div>
-        <div class="groupbox">
-        <p>Maladie : ${employerMaladie} €</p>
-        <p>Vieillesse : ${employerVieillesse} €</p>
-        <p>Alloc. Familiales : ${employerAllocFamiliales} €</p>
-        <p>Accident du travail : ${employerAccident} €</p>
-        <p>FNAL : ${employerFnal} €</p>
-        <p>CSA : ${employerCsa} €</p>
-        <p>Formation professionnelle : ${employerFormation} €</p>
-        <p>Dialogue social : ${employerDialogue} €</p>
-        <p>Retraite complémentaire : ${employerComplementaire} €</p>
-        <p>Prévoyance : ${employerPrevoyance} €</p>
-        <p>Assurance chômage : ${employerChomage} €</p>
-        <p><strong>Total Cotisations Patronales :</strong> ${totalEmployerContributions} €</p>
-        </div>
-        <p><strong>Salaire Net:</strong> ${netSalary} €</p>
+        <p><strong>Salaire Net : <span style="float: right;">${netSalary} €</span></strong></p>
     `;
-    document.getElementById('payslip'). innerHTML = DOMPurify.sanitize(payslip);
+    document.getElementById('payslip').innerHTML = DOMPurify.sanitize(payslip);
 }
