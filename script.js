@@ -12,6 +12,18 @@ function calculateContributions() {
     const maladieRate = 0.069;
     const retraiteRate = 0.0401;
     const prevoyanceRate = 0.0104;
+
+    const employerMaladieRate = 0.13
+    const employerVieillesseRate = 0.1057;
+    const employerFamilleRate = 0.0525;
+    const employerAccidentRate = 0.0079;
+    const employerFnalRate = 0.001;
+    const employerCsaRate = 0.003;
+    const employerFormationRate = 0.0085;
+    const employerDialogueRate = 0.00016;
+    const employerComplementaireRate = 0.0601;
+    const employerPrevoyanceRate = 0.0245;
+    const employerChomageRate = 0.0405
   
     const grossSalaryBaseDeductible = grossSalary * 0.9825
 
@@ -22,7 +34,20 @@ function calculateContributions() {
     const retraite = grossSalary * retraiteRate;
     const prevoyance = grossSalary * prevoyanceRate;
 
+    const employerMaladie = grossSalary * employerMaladieRate;
+    const employerVieillesse = grossSalary * employerVieillesseRate;
+    const employerAllocFamiliales = grossSalary * employerFamilleRate;
+    const employerAccident = grossSalary * employerAccidentRate;
+    const employerFnal = grossSalary * employerFnalRate;
+    const employerCsa = grossSalary * employerCsaRate;
+    const employerFormation = grossSalary * employerFormationRate;
+    const employerDialogue = grossSalary * employerDialogueRate;
+    const employerComplementaire = grossSalary * employerComplementaireRate;
+    const employerPrevoyance = grossSalary * employerPrevoyanceRate;
+    const employerChomage = grossSalary * employerChomageRate;
+
     const totalEmployeeContributions = csgRdsNonDeductible + csgDeductible + vieillesse + maladie + retraite + prevoyance;
+    const totalEmployerContributions = employerMaladie + employerVieillesse + employerAllocFamiliales + employerAccident + employerFnal + employerCsa + employerFormation + employerDialogue + employerComplementaire + employerPrevoyance + employerChomage;
     const netSalary = grossSalary - totalEmployeeContributions;
 
     document.getElementById('csg-rds-non-deductible').value = csgRdsNonDeductible.toFixed(2);
@@ -33,6 +58,18 @@ function calculateContributions() {
     document.getElementById('prevoyance').value = prevoyance.toFixed(2);
     document.getElementById('total-employee-contributions').value = totalEmployeeContributions.toFixed(2);
     document.getElementById('net-salary').value = netSalary.toFixed(2);
+    document.getElementById('maladie-employer').value = employerMaladie.toFixed(2);
+    document.getElementById('vieillesse-employer').value = employerVieillesse.toFixed(2);
+    document.getElementById('alloc-familiales-employer').value = employerAllocFamiliales.toFixed(2);
+    document.getElementById('accident-employer').value = employerAccident.toFixed(2);
+    document.getElementById('fnal-employer').value = employerFnal.toFixed(2);
+    document.getElementById('csa-employer').value = employerCsa.toFixed(2);
+    document.getElementById('formation-employer').value = employerFormation.toFixed(2);
+    document.getElementById('dialogue-employer').value = employerDialogue.toFixed(2);
+    document.getElementById('complementaire-employer').value = employerComplementaire.toFixed(2);
+    document.getElementById('prevoyance-employer').value = employerPrevoyance.toFixed(2);
+    document.getElementById('chomage-employer').value = employerChomage.toFixed(2);
+    document.getElementById('total-employer-contributions').value = totalEmployerContributions.toFixed(2);
 }
 
 function generatePayslip() {
@@ -52,30 +89,57 @@ function generatePayslip() {
     const retraite = document.getElementById('retraite').value;
     const prevoyance = document.getElementById('prevoyance').value;
     const totalEmployeeContributions = document.getElementById('total-employee-contributions').value;
+    const employerMaladie = document.getElementById('maladie-employer').value;
+    const employerVieillesse = document.getElementById('vieillesse-employer').value;
+    const employerAllocFamiliales = document.getElementById('alloc-familiales-employer').value;
+    const employerAccident = document.getElementById('accident-employer').value;
+    const employerFnal = document.getElementById('fnal-employer').value;
+    const employerCsa = document.getElementById('csa-employer').value;
+    const employerFormation = document.getElementById('formation-employer').value;
+    const employerDialogue = document.getElementById('dialogue-employer').value;
+    const employerComplementaire = document.getElementById('complementaire-employer').value;
+    const employerPrevoyance = document.getElementById('prevoyance-employer').value;
+    const employerChomage = document.getElementById('chomage-employer').value;
+    const totalEmployerContributions = document.getElementById('total-employer-contributions').value;
+
     const payslip = `
         <h2>Bulletin de Salaire</h2>
         <div class=employgroup>
         <div class="groupbox">
-        <p>Employeur(se): ${employerName}</p>
-        <p>Adresse: ${employerAddress}</p>
-        <p>Numéro: ${employerNumber}</p>
+        <p>Employeur(se) : ${employerName}</p>
+        <p>Adresse : ${employerAddress}</p>
+        <p>Numéro : ${employerNumber}</p>
         </div>
         <div class="groupbox">
-        <p>Employé(e): ${employeeName}</p>
-        <p>Poste: ${employeePosition}</p>
-        <p>Numéro: ${employeeNumber}</p>
-        <p>Numéro de SS: ${socialSecurity}</p>
+        <p>Employé(e) : ${employeeName}</p>
+        <p>Poste : ${employeePosition}</p>
+        <p>Numéro : ${employeeNumber}</p>
+        <p>Numéro de SS : ${socialSecurity}</p>
         </div>
         </div>
-        <p><strong>Salaire Brut:</strong> ${grossSalary} €</p>
+        <p><strong>Salaire Brut :</strong> ${grossSalary} €</p>
         <div class="groupbox">
-        <p>CSG/RDS non déductible: ${csgRdsNonDeductible} €</p>
-        <p>CSG déductible: ${csgDeductible} €</p>
-        <p>Vieillesse: ${vieillesse} €</p>
-        <p>Maladie: ${maladie} €</p>
+        <p>CSG/RDS non déductible : ${csgRdsNonDeductible} €</p>
+        <p>CSG déductible : ${csgDeductible} €</p>
+        <p>Vieillesse : ${vieillesse} €</p>
+        <p>Maladie : ${maladie} €</p>
         <p>Retraite: ${retraite} €</p>
-        <p>Prévoyance: ${prevoyance} €</p>
-        <p><strong>Total Cotisations Salariales:</strong> ${totalEmployeeContributions} €</p>
+        <p>Prévoyance : ${prevoyance} €</p>
+        <p><strong>Total Cotisations Salariales :</strong> ${totalEmployeeContributions} €</p>
+        </div>
+        <div class="groupbox">
+        <p>Maladie : ${employerMaladie} €</p>
+        <p>Vieillesse : ${employerVieillesse} €</p>
+        <p>Alloc. Familiales : ${employerAllocFamiliales} €</p>
+        <p>Accident du travail : ${employerAccident} €</p>
+        <p>FNAL : ${employerFnal} €</p>
+        <p>CSA : ${employerCsa} €</p>
+        <p>Formation professionnelle : ${employerFormation} €</p>
+        <p>Dialogue social : ${employerDialogue} €</p>
+        <p>Retraite complémentaire : ${employerComplementaire} €</p>
+        <p>Prévoyance : ${employerPrevoyance} €</p>
+        <p>Assurance chômage : ${employerChomage} €</p>
+        <p><strong>Total Cotisations Patronales :</strong> ${totalEmployerContributions} €</p>
         </div>
         <p><strong>Salaire Net:</strong> ${netSalary} €</p>
     `;
