@@ -1,9 +1,13 @@
 function calculateContributions() {
     const grossSalary = parseFloat(document.getElementById('gross-salary').value);
+    const maintenanceAllowance = parseFloat(document.getElementById('maintenance-allowance').value) || 0; 
+    const mealAllowance = parseFloat(document.getElementById('meal-allowance').value) || 0;
 
     if (isNaN(grossSalary)) {
         return;
     }
+
+    
 
     // Taux de cotisations salariales pour 2025
     const csgRdsNonDeductibleRate = 0.029;
@@ -49,6 +53,8 @@ function calculateContributions() {
     const totalEmployeeContributions = csgRdsNonDeductible + csgDeductible + vieillesse + maladie + retraite + prevoyance;
     const totalEmployerContributions = employerMaladie + employerVieillesse + employerAllocFamiliales + employerAccident + employerFnal + employerCsa + employerFormation + employerDialogue + employerComplementaire + employerPrevoyance + employerChomage;
     const netSalary = grossSalary - totalEmployeeContributions;
+    const allowanceNetSalary = netSalary + mealAllowance + maintenanceAllowance;
+    
 
     document.getElementById('csg-rds-non-deductible').value = csgRdsNonDeductible.toFixed(2);
     document.getElementById('csg-deductible').value = csgDeductible.toFixed(2);
@@ -70,6 +76,9 @@ function calculateContributions() {
     document.getElementById('prevoyance-employer').value = employerPrevoyance.toFixed(2);
     document.getElementById('chomage-employer').value = employerChomage.toFixed(2);
     document.getElementById('total-employer-contributions').value = totalEmployerContributions.toFixed(2);
+    document.getElementById('maintenance-allowance').value = maintenanceAllowance.toFixed(2);
+    document.getElementById('meal-allowance').value = mealAllowance.toFixed(2);
+    document.getElementById('allowance-net-salary').value = allowanceNetSalary.toFixed(2);
 }
 
 function generatePayslip() {
@@ -101,6 +110,10 @@ function generatePayslip() {
     const employerPrevoyance = document.getElementById('prevoyance-employer').value;
     const employerChomage = document.getElementById('chomage-employer').value;
     const totalEmployerContributions = document.getElementById('total-employer-contributions').value;
+    const maintenanceAllowance = document.getElementById('maintenance-allowance').value;
+    const mealAllowance = document.getElementById('meal-allowance').value;
+    const allowanceNetSalary = document.getElementById('allowance-net-salary').value;
+    
 
     const payslip = `
         <h2>Bulletin de Salaire</h2>
@@ -142,6 +155,11 @@ function generatePayslip() {
             <p><strong>Total Cotisations Patronales :</strong> <span style="float: right;">${totalEmployerContributions} €</span></p>
         </div>
         <p><strong>Salaire Net : <span style="float: right;">${netSalary} €</span></strong></p>
+        <div class="groupbox">
+        <p>Indemnités d'entretien : <span style="float: right;">${maintenanceAllowance} €</span></p>
+        <p>Indemnités de repas : <span style="float: right;">${mealAllowance} €</span></p>
+        <p>Salaire net + indemnités : <span style="float: right;">${allowanceNetSalary} €</span></p>
+        </div>
     `;
     document.getElementById('payslip').innerHTML = DOMPurify.sanitize(payslip);
 }
