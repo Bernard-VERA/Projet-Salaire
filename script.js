@@ -2,6 +2,7 @@ function calculateContributions() {
     const grossSalary = parseFloat(document.getElementById('gross-salary').value);
     const maintenanceAllowance = parseFloat(document.getElementById('maintenance-allowance').value) || 0; 
     const mealAllowance = parseFloat(document.getElementById('meal-allowance').value) || 0;
+    const taxRate = parseFloat(document.getElementById('tax-rate').value) || 0;
 
     if (isNaN(grossSalary)) {
         return;
@@ -54,6 +55,8 @@ function calculateContributions() {
     const totalEmployerContributions = employerMaladie + employerVieillesse + employerAllocFamiliales + employerAccident + employerFnal + employerCsa + employerFormation + employerDialogue + employerComplementaire + employerPrevoyance + employerChomage;
     const netSalary = grossSalary - totalEmployeeContributions;
     const allowanceNetSalary = netSalary + mealAllowance + maintenanceAllowance;
+    const taxableSalary = allowanceNetSalary + csgRdsNonDeductible;
+    const taxLieved = taxableSalary * taxRate /100;
     
 
     document.getElementById('csg-rds-non-deductible').value = csgRdsNonDeductible.toFixed(2);
@@ -79,6 +82,9 @@ function calculateContributions() {
     document.getElementById('maintenance-allowance').value = maintenanceAllowance.toFixed(2);
     document.getElementById('meal-allowance').value = mealAllowance.toFixed(2);
     document.getElementById('allowance-net-salary').value = allowanceNetSalary.toFixed(2);
+    document.getElementById('taxable-salary').value = taxableSalary.toFixed(2);
+    document.getElementById('tax-rate').value = taxRate.toFixed(2);
+    document.getElementById('tax-lieved').value = taxLieved.toFixed(2);
 }
 
 function generatePayslip() {
@@ -113,6 +119,9 @@ function generatePayslip() {
     const maintenanceAllowance = document.getElementById('maintenance-allowance').value;
     const mealAllowance = document.getElementById('meal-allowance').value;
     const allowanceNetSalary = document.getElementById('allowance-net-salary').value;
+    const taxableSalary = document.getElementById('taxable-salary').value;
+    const taxRate = document.getElementById('tax-rate').value;
+    const taxLieved = document.getElementById('tax-lieved').value;
     
 
     const payslip = `
@@ -156,9 +165,14 @@ function generatePayslip() {
         </div>
         <p><strong>Salaire Net : <span style="float: right;">${netSalary} €</span></strong></p>
         <div class="groupbox">
-        <p>Indemnités d'entretien : <span style="float: right;">${maintenanceAllowance} €</span></p>
-        <p>Indemnités de repas : <span style="float: right;">${mealAllowance} €</span></p>
-        <p>Salaire net + indemnités : <span style="float: right;">${allowanceNetSalary} €</span></p>
+            <p>Indemnités d'entretien : <span style="float: right;">${maintenanceAllowance} €</span></p>
+            <p>Indemnités de repas : <span style="float: right;">${mealAllowance} €</span></p>
+            <p><strong>Salaire net + indemnités : <span style="float: right;">${allowanceNetSalary} €</span></strong></p>
+        </div>
+        <div class="groupbox">
+            <p>Salaire imposable : <span style="float: right;">${taxableSalary} €</span></p>
+            <p>Taux d'imposition : <span style="float: right;">${taxRate} %</span></p>
+            <p>Impôt prélevé : <span style="float: right;">${taxLieved} €</span></p>
         </div>
     `;
     document.getElementById('payslip').innerHTML = DOMPurify.sanitize(payslip);

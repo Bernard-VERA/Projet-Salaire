@@ -50,14 +50,15 @@
                 <input type="text" id="meal-allowance" name="meal-allowance" class="fill">
             </div>
             <div class="form-group">
+                <label for="tax-rate">Taux d'imposition:</label>
+                <input type="text" id="tax-rate" name="tax-rate" class="fill">
+            </div>
+            <div class="form-group">
                 <label for="gross-salary">Salaire Brut:</label>
                 <input type="number" id="gross-salary" name="gross-salary" class="fill" oninput="calculateContributions()">
             </div>
            
-            <div class="form-group">
-                <label for="tax-rate">Taux d'imposition:</label>
-                <input type="text" id="tax-rate" name="tax-rate" class="fill">
-            </div>
+            
             <div class="form-group">
                 <label for="net-salary">Salaire Net:</label>
                 <input type="number" id="net-salary" name="net-salary" readonly>
@@ -144,6 +145,15 @@
                 <label for="allowance-net-salary">Salaire net + indemnités:</label>
                 <input type="number" id="allowance-net-salary" name="allowance-net-salary" readonly>
             </div>
+            <div class="form-group">
+                <label for="taxable-salary">Salaire imposable:</label>
+                <input type="number" id="taxable-salary" name="taxable-salary" readonly>
+            </div>
+            <div class="form-group">
+                <label for="tax-lieved">Impôt prélevé:</label>
+                <input type="number" id="tax-lieved" name="tax-lieved" readonly>
+            </div>
+
 
             <div class="form-group">
                 <button onclick="generatePayslip()">Générer le Bulletin</button>
