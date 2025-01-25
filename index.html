@@ -13,6 +13,8 @@
         <main>
             <h1>Bulletin de Salaire</h1>
             <h2>Pour parent employeur et assistant(e) maternel(le)</h2>
+            <p class="instructions">Remplissez les cases de couleur bleue</p>
+            <p class="instructions">Puis cliquez sur "Générer le bulletin"</p>
             <div class="form-group">
                 <label for="employer-name">Nom de l'employeur(se):</label>
                 <input type="text" id="employer-name" name="employer-name" class="fill">
@@ -141,6 +143,7 @@
                 <label for="total-employer-contributions">Total Cotisations Employeur:</label>
                 <input type="number" id="total-employer-contributions" name="total-employer-contributions" readonly>
             </div>
+
             <div class="form-group">
                 <label for="allowance-net-salary">Salaire net + indemnités:</label>
                 <input type="number" id="allowance-net-salary" name="allowance-net-salary" readonly>
@@ -153,7 +156,10 @@
                 <label for="tax-lieved">Impôt prélevé:</label>
                 <input type="number" id="tax-lieved" name="tax-lieved" readonly>
             </div>
-
+            <div class="form-group">
+                <label for="net-to-pay">Net à payer:</label>
+                <input type="number" id="net-to-pay" name="net-to-pay" readonly>
+            </div>
 
             <div class="form-group">
                 <button onclick="generatePayslip()">Générer le Bulletin</button>

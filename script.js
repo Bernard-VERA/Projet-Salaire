@@ -57,6 +57,7 @@ function calculateContributions() {
     const allowanceNetSalary = netSalary + mealAllowance + maintenanceAllowance;
     const taxableSalary = allowanceNetSalary + csgRdsNonDeductible;
     const taxLieved = taxableSalary * taxRate /100;
+    const netToPay = allowanceNetSalary - taxLieved;
     
 
     document.getElementById('csg-rds-non-deductible').value = csgRdsNonDeductible.toFixed(2);
@@ -85,6 +86,7 @@ function calculateContributions() {
     document.getElementById('taxable-salary').value = taxableSalary.toFixed(2);
     document.getElementById('tax-rate').value = taxRate.toFixed(2);
     document.getElementById('tax-lieved').value = taxLieved.toFixed(2);
+    document.getElementById('net-to-pay').value = netToPay.toFixed(2);
 }
 
 function generatePayslip() {
@@ -122,6 +124,7 @@ function generatePayslip() {
     const taxableSalary = document.getElementById('taxable-salary').value;
     const taxRate = document.getElementById('tax-rate').value;
     const taxLieved = document.getElementById('tax-lieved').value;
+    const netToPay = document.getElementById('net-to-pay').value;
     
 
     const payslip = `
@@ -173,6 +176,9 @@ function generatePayslip() {
             <p>Salaire imposable : <span style="float: right;">${taxableSalary} €</span></p>
             <p>Taux d'imposition : <span style="float: right;">${taxRate} %</span></p>
             <p>Impôt prélevé : <span style="float: right;">${taxLieved} €</span></p>
+        </div>
+        <div class="groupbox">
+        <p><strong>NET A PAYER : <span style="float: right;">${netToPay} €</strong></span></p>
         </div>
     `;
     document.getElementById('payslip').innerHTML = DOMPurify.sanitize(payslip);
