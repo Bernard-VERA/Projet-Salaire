@@ -1,4 +1,5 @@
 function calculateContributions() {
+   
     const grossSalary = parseFloat(document.getElementById('gross-salary').value);
     const maintenanceAllowance = parseFloat(document.getElementById('maintenance-allowance').value) || 0; 
     const mealAllowance = parseFloat(document.getElementById('meal-allowance').value) || 0;
@@ -90,6 +91,8 @@ function calculateContributions() {
 }
 
 function generatePayslip() {
+    const currentMonth = document.getElementById('current-month').value;
+    const currentYear = document.getElementById('current-year').value;
     const employerName = document.getElementById('employer-name').value;
     const employerAddress = document.getElementById('employer-address').value;
     const employerNumber = document.getElementById('employer-number').value;
@@ -179,6 +182,9 @@ function generatePayslip() {
         </div>
         <div class="groupbox">
         <p><strong>NET A PAYER : <span style="float: right;">${netToPay} €</strong></span></p>
+        </div>
+        <div class="groupbox">
+        <p>Salaire du mois de : <span> ${currentMonth} ${currentYear}</span></p>
         </div>
     `;
     document.getElementById('payslip').innerHTML = DOMPurify.sanitize(payslip);

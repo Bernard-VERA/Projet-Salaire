@@ -7,6 +7,7 @@
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css">
     <script src="csrf.js"></script><!-- SCRIPT DE PROTECTION CSRF--> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.js"></script><!--SCRIPT DE PROTECTION XSS-->
 </head>
 <body>
     <div class="container">
@@ -18,8 +19,16 @@
             <p class="instructions">Remplissez les cases de couleur bleue</p>
             <p class="instructions">Puis cliquez sur "Générer le bulletin"</p>
             <div class="form-group">
+                <label for="current-month">Mois en cours:</label>
+                <input type="text" id="current-month" name="current-month" class="fill" placeholder="Exemple: Janvier">
+            </div>
+            <div class="form-group">
+                <label for="current-year">Année en cours:</label>
+                <input type="text" id="current-year" name="current-year" class="fill" placeholder="Exemple: 2025">
+            </div>
+            <div class="form-group">
                 <label for="employer-name">Nom de l'employeur(se):</label>
-                <input type="text" id="employer-name" name="employer-name" class="fill">
+                <input type="text" id="employer-name" name="employer-name" class="fill" placeholder="Nom et prénom">
             </div>
             <div class="form-group">
                 <label for="employer-address">Adresse de l'employeur(se):</label>
@@ -31,7 +40,7 @@
             </div>
             <div class="form-group">
                 <label for="employee-name">Nom de l'employé(e):</label>
-                <input type="text" id="employee-name" name="employee-name" class="fill">
+                <input type="text" id="employee-name" name="employee-name" class="fill" placeholder="Nom et prénom">
             </div>
             <div class="form-group">
                 <label for="employee-position">Poste de l'employé(e):</label>
@@ -47,19 +56,19 @@
             </div>
             <div class="form-group">
                 <label for="maintenance-allowance">indemnités d'entretien:</label>
-                <input type="text" id="maintenance-allowance" name="maintenance-allowance" class="fill">
+                <input type="text" id="maintenance-allowance" name="maintenance-allowance" class="fill" placeholder="Indemnités du mois">
             </div>
             <div class="form-group">
                 <label for="meal-allowance">indemnités de repas:</label>
-                <input type="text" id="meal-allowance" name="meal-allowance" class="fill">
+                <input type="text" id="meal-allowance" name="meal-allowance" class="fill" placeholder="Indemnités du mois">
             </div>
             <div class="form-group">
                 <label for="tax-rate">Taux d'imposition:</label>
-                <input type="text" id="tax-rate" name="tax-rate" class="fill">
+                <input type="text" id="tax-rate" name="tax-rate" class="fill" placeholder="Exemple: 1.5">
             </div>
             <div class="form-group">
                 <label for="gross-salary">Salaire Brut:</label>
-                <input type="number" id="gross-salary" name="gross-salary" class="fill" oninput="calculateContributions()">
+                <input type="number" id="gross-salary" name="gross-salary" class="fill" placeholder="Exemple: 978.56" oninput="calculateContributions()">
             </div>
            
             
@@ -175,6 +184,6 @@
         </footer>
     </div>
 <script src="script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.js"></script><!--SCRIPT DE PROTECTION XSS-->
+
 </body>
 </html>
