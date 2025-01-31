@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="csrf.js"></script><!-- SCRIPT DE PROTECTION CSRF--> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.js"></script><!--SCRIPT DE PROTECTION XSS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script src="generatePDF.js"></script>
 </head>
 <body>
     <div class="container">
@@ -175,7 +179,19 @@
             <div class="form-group">
                 <button onclick="generatePayslip()">Générer le Bulletin</button>
             </div>
-            <div id="payslip"></div>
+
+            <div id="payslip">
+            </div>
+
+            <div class="form-group">
+                <div class="infos">
+                    <p class="instructions">Pour sauvegarder et imprimer le bulletin,</p>
+                    <p class="instructions">vous pouvez créér un fichier PDF</p>
+                    <p class="instructions">en cliquant sur le bouton ci-dessous </p>
+                </div>
+                <button id='generate-pdf'>Créér un PDF</button>
+            </div>
+
         </main>
         <footer>
             <div class="copyright">
@@ -183,7 +199,7 @@
             </div>
         </footer>
     </div>
-<script src="script.js"></script>
+
 
 </body>
 </html>
