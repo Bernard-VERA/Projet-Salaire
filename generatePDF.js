@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function generatePDF() {
         const element = document.getElementById('payslip');
+        if (!element || element.innerHTML.trim() === "") {
+            alert("Veuillez générer le bulletin avant de cliquer ici");
+            return;
+        }
         html2canvas(element).then((canvas) => {
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF();
