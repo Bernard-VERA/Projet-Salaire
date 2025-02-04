@@ -86,10 +86,28 @@ body {
     margin-bottom: 10px;
 }
 
+.alternate-text {
+    display: none;
+}
+
 footer {
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 90px;
+}
+
+@media screen and (max-width: 700px) {
+    .infos {
+        display: none;
+    }
+
+    #generate-pdf {
+        display: none;
+    }
+
+    .alternate-text {
+        display: flex;
+    }
 }
