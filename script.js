@@ -1,15 +1,13 @@
 function calculateContributions() {
-   
+// Récupère les valeurs des champs de saisie et les convertit en nombres
     const grossSalary = parseFloat(document.getElementById('gross-salary').value);
     const maintenanceAllowance = parseFloat(document.getElementById('maintenance-allowance').value) || 0; 
     const mealAllowance = parseFloat(document.getElementById('meal-allowance').value) || 0;
     const taxRate = parseFloat(document.getElementById('tax-rate').value) || 0;
 
     if (isNaN(grossSalary)) {
-        return;
+        return; // Vérifie si le salaire brut est un nombre valide
     }
-
-    
 
     // Taux de cotisations salariales pour 2025
     const csgRdsNonDeductibleRate = 0.029;
@@ -19,6 +17,7 @@ function calculateContributions() {
     const retraiteRate = 0.0401;
     const prevoyanceRate = 0.0104;
 
+    // Taux de cotisations patronales pour 2025
     const employerMaladieRate = 0.13
     const employerVieillesseRate = 0.1057;
     const employerFamilleRate = 0.0525;
@@ -31,8 +30,10 @@ function calculateContributions() {
     const employerPrevoyanceRate = 0.0245;
     const employerChomageRate = 0.0405
   
+    // Calcul de la base de salaire brut déductible
     const grossSalaryBaseDeductible = grossSalary * 0.9825
 
+    // Calcul des cotisations salariales
     const csgRdsNonDeductible = grossSalaryBaseDeductible * csgRdsNonDeductibleRate;
     const csgDeductible = grossSalaryBaseDeductible * csgDeductibleRate;
     const vieillesse = grossSalary * vieillesseRate;
@@ -40,6 +41,7 @@ function calculateContributions() {
     const retraite = grossSalary * retraiteRate;
     const prevoyance = grossSalary * prevoyanceRate;
 
+    // Calcul des cotisations patronales
     const employerMaladie = grossSalary * employerMaladieRate;
     const employerVieillesse = grossSalary * employerVieillesseRate;
     const employerAllocFamiliales = grossSalary * employerFamilleRate;
@@ -52,15 +54,20 @@ function calculateContributions() {
     const employerPrevoyance = grossSalary * employerPrevoyanceRate;
     const employerChomage = grossSalary * employerChomageRate;
 
+    // Calcul du total des cotisations salariales et patronales
     const totalEmployeeContributions = csgRdsNonDeductible + csgDeductible + vieillesse + maladie + retraite + prevoyance;
     const totalEmployerContributions = employerMaladie + employerVieillesse + employerAllocFamiliales + employerAccident + employerFnal + employerCsa + employerFormation + employerDialogue + employerComplementaire + employerPrevoyance + employerChomage;
+    
+    // Calcul du salaire net et du salaire avec les indemnités
     const netSalary = grossSalary - totalEmployeeContributions;
     const allowanceNetSalary = netSalary + mealAllowance + maintenanceAllowance;
+    
+    // Calcul des impôts
     const taxableSalary = allowanceNetSalary + csgRdsNonDeductible;
     const taxLieved = taxableSalary * taxRate /100;
     const netToPay = allowanceNetSalary - taxLieved;
     
-
+    // Met à jour les valeurs des champs de saisie avec les résultats calculés
     document.getElementById('csg-rds-non-deductible').value = csgRdsNonDeductible.toFixed(2);
     document.getElementById('csg-deductible').value = csgDeductible.toFixed(2);
     document.getElementById('vieillesse').value = vieillesse.toFixed(2);
@@ -91,6 +98,7 @@ function calculateContributions() {
 }
 
 function generatePayslip() {
+    // Récupération de toutes les valeurs des champs de saisie
     const currentMonth = document.getElementById('current-month').value;
     const currentYear = document.getElementById('current-year').value;
     const employerName = document.getElementById('employer-name').value;
@@ -129,7 +137,7 @@ function generatePayslip() {
     const taxLieved = document.getElementById('tax-lieved').value;
     const netToPay = document.getElementById('net-to-pay').value;
     
-
+    // Génère le contenu du bulletin de salaire avec les informations récupérées
     const payslip = `
         <h2>Bulletin de Salaire</h2>
         <div class="employgroup">
@@ -187,5 +195,6 @@ function generatePayslip() {
         <p>Salaire du mois de : <span> ${currentMonth} ${currentYear}</span></p>
         </div>
     `;
+    // Met à jour le contenu de l'élément avec l'ID 'payslip' avec le bulletin de salaire généré
     document.getElementById('payslip').innerHTML = DOMPurify.sanitize(payslip);
-}
+}   // DOMPurify sécurise le contenu généré pour protéger des attaques XSS

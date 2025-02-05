@@ -52,7 +52,7 @@ body {
 
 .form-group button {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #0051ff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -64,7 +64,7 @@ body {
 }
 
 .no-show {
-    display: none;
+    display: none; /* Cache les éléments ayant la classe 'no-show' */
 }
 
 .employgroup {
@@ -88,7 +88,7 @@ body {
 }
 
 .alternate-text {
-    display: none;
+    display: none; /* Cache les éléments ayant la classe 'alternate-text' */
 }
 
 footer {
@@ -99,6 +99,7 @@ footer {
     margin-top: 90px;
 }
 
+/* Responsive Design pour écrans de moins de 700px*/
 @media screen and (max-width: 700px) {
 
     .container {
@@ -106,18 +107,19 @@ footer {
     }
 
     .infos {
-        display: none;
+        display: none; /* Cache les éléments ayant la classe 'infos' */
     }
 
     #generate-pdf {
-        display: none;
+        display: none; /* Cache le bouton de génération de PDF */
     }
 
     .alternate-text {
-        display: flex;
+        display: flex; /* Affiche le texte de remplacement*/
     }
 }
 
+/* Responsive Design pour écrans de moins de 400px*/
 @media screen and (max-width: 400px) {
 
     .container {

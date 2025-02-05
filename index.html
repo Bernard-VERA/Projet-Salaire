@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="csrf.js"></script><!-- SCRIPT DE PROTECTION CSRF--> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.js"></script><!--SCRIPT DE PROTECTION XSS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>    <!-- bibliothèque html2canvas pour convertir HTML en canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script><!-- bibliothèque jsPDF pour générer des fichiers PDF -->
     <script src="script.js"></script>
     <script src="generatePDF.js"></script>
 </head>
@@ -22,6 +22,7 @@
             <h2>Pour parent employeur et assistant(e) maternel(le)</h2>
             <p class="instructions">Remplissez les cases de couleur bleue</p>
             <p class="instructions">Puis cliquez sur "Générer le bulletin"</p>
+             <!-- Création de tous les champs de formulaires -->
             <div class="form-group">
                 <label for="current-month">Mois en cours:</label>
                 <input type="text" id="current-month" name="current-month" class="fill" placeholder="Exemple: Janvier">
@@ -175,7 +176,7 @@
                 <label for="net-to-pay">Net à payer:</label>
                 <input type="number" id="net-to-pay" name="net-to-pay" readonly>
             </div>
-
+            <!-- Création du bouton "Générer le Bulletin" -->
             <div class="form-group">
                 <button onclick="generatePayslip()">Générer le Bulletin</button>
             </div>
@@ -188,6 +189,7 @@
                     <p class="instructions">Pour sauvegarder et imprimer le bulletin,</p>
                     <p class="instructions">cliquez sur le bouton ci-dessous.</p>
                 </div>
+                <!-- Création du bouton "Créér un PDF" -->
                 <button id='generate-pdf'>Créér un PDF</button>
                 <div class="alternate-text">Impossible de créér un PDF en format mobile. Essayez de positionner votre écran en mode paysage.</div>
             </div>
@@ -199,7 +201,5 @@
             </div>
         </footer>
     </div>
-
-
 </body>
 </html>
