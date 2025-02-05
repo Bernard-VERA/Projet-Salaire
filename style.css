@@ -30,6 +30,7 @@ body {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    font-size: 1rem;
 }
 
 .form-group {
@@ -99,6 +100,11 @@ footer {
 }
 
 @media screen and (max-width: 700px) {
+
+    .container {
+        font-size: 0.9rem;
+    }
+
     .infos {
         display: none;
     }
@@ -109,5 +115,16 @@ footer {
 
     .alternate-text {
         display: flex;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .container {
+        font-size: 0.7rem;
+    }
+
+    input {
+        font-size: 0.6rem;
     }
 }
