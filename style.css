@@ -91,6 +91,17 @@ body {
     display: none; /* Cache les éléments ayant la classe 'alternate-text' */
 }
 
+.error {
+    border: 2px solid #ff0000 !important;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 0.8em;
+    margin-top: 5px;
+    text-align: left;
+}
+
 footer {
     height: 50px;
     display: flex;

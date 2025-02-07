@@ -1,3 +1,121 @@
+// Fonction de validation des champs
+function validateFields() {
+    let isValid = true;
+    clearErrors(); // Nettoie les erreurs précédentes
+
+    // Validation du mois
+    const currentMonth = document.getElementById('current-month').value.trim();
+    if (!currentMonth) {
+        showError('current-month', 'Le mois est requis');
+        isValid = false;
+    } else if (!/^[A-Za-zÀ-ÿ]+$/.test(currentMonth)) {
+        showError('current-month', 'Le mois doit contenir uniquement des lettres');
+        isValid = false;
+    }
+
+    // Validation de l'année
+    const currentYear = document.getElementById('current-year').value.trim();
+    if (!currentYear) {
+        showError('current-year', 'L\'année est requise');
+        isValid = false;
+    } else if (!/^\d{4}$/.test(currentYear)) {
+        showError('current-year', 'L\'année doit contenir 4 chiffres');
+        isValid = false;
+    }
+
+    // Validation des champs employeur
+    const employerName = document.getElementById('employer-name').value.trim();
+    if (!employerName) {
+        showError('employer-name', 'Le nom de l\'employeur est requis');
+        isValid = false;
+    }
+
+    const employerNumber = document.getElementById('employer-number').value.trim();
+    if (!employerNumber) {
+        showError('employer-number', 'Le numéro de l\'employeur est requis');
+        isValid = false;
+    }
+
+    // Validation des champs employé
+    const employeeName = document.getElementById('employee-name').value.trim();
+    if (!employeeName) {
+        showError('employee-name', 'Le nom de l\'employé est requis');
+        isValid = false;
+    }
+
+    const socialSecurity = document.getElementById('social-security').value.trim();
+    if (!socialSecurity) {
+        showError('social-security', 'Le numéro de sécurité sociale est requis');
+        isValid = false;
+    } else if (!/^\d{15}$/.test(socialSecurity)) {
+        showError('social-security', 'Le numéro de sécurité sociale doit contenir 15 chiffres');
+        isValid = false;
+    }
+
+    // Validation du salaire brut
+    const grossSalary = document.getElementById('gross-salary').value;
+    if (!grossSalary) {
+        showError('gross-salary', 'Le salaire brut est requis');
+        isValid = false;
+    } else if (isNaN(grossSalary) || parseFloat(grossSalary) <= 0) {
+        showError('gross-salary', 'Le salaire brut doit être un nombre positif');
+        isValid = false;
+    }
+
+    // Validation du taux d'imposition
+    const taxRate = document.getElementById('tax-rate').value;
+    if (taxRate && (isNaN(taxRate) || parseFloat(taxRate) < 0)) {
+        showError('tax-rate', 'Le taux d\'imposition doit être un nombre positif');
+        isValid = false;
+    }
+
+    // Si des erreurs sont présentes, afficher l'alerte
+    if (!isValid) {
+        alert("Attention ! Un ou plusieurs champs sont mal remplis");
+        return;
+    }
+    return isValid;
+}
+
+// Ajout des écouteurs d'événements pour effacer les erreurs lors de la saisie
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            clearError(this.id);
+        });
+    });
+});
+
+// Fonction pour effacer une erreur spécifique
+function clearError(fieldId) {
+    const errorElement = document.querySelector(`#${fieldId}-error`);
+    if (errorElement) {
+        errorElement.remove();
+    }
+}
+
+// Fonction pour effacer toutes les erreurs
+function clearErrors() {
+    const errorElements = document.querySelectorAll('[id$="-error"]');
+    errorElements.forEach(element => element.remove());
+}
+
+// Fonction pour afficher une erreur
+function showError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    clearError(fieldId); // Nettoie l'erreur existante avant d'en afficher une nouvelle
+    
+    const errorDiv = document.createElement('div');
+    errorDiv.id = `${fieldId}-error`;
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    
+    if (field && field.parentNode) {
+        field.parentNode.appendChild(errorDiv);
+    }
+}
+
 function calculateContributions() {
 // Récupère les valeurs des champs de saisie et les convertit en nombres
     const grossSalary = parseFloat(document.getElementById('gross-salary').value);
@@ -98,6 +216,9 @@ function calculateContributions() {
 }
 
 function generatePayslip() {
+    if (!validateFields()) {
+        return; // Arrête la génération si la validation échoue
+    }
     // Récupération de toutes les valeurs des champs de saisie
     const currentMonth = document.getElementById('current-month').value;
     const currentYear = document.getElementById('current-year').value;
