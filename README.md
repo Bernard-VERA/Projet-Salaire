@@ -27,8 +27,11 @@ La création de cette page web me permettra d’améliorer mes compétences tech
 * Conception de la logique du bulletin de salaire (définir les rubriques, fixer les bases et les taux des cotisations, vérifier les résultats).
 * Formulations complexes pour calculer les sommes et montants automatiquement.
 * Mise en place d'une interface utilisateur simple et esthétique avec HTML et CSS.
-* Intégration d'une fonction qui permet d'éditer puis d'imprimer le bulletin de salaire.
 * S'agissant de formulaires, mise en place d'une sécurité contre les attaques XSS.
+* Mise en place d'un jeton CSRF unique dans le local storage, pour la sécurité.
+* Validation des champs des formulaires.
+* Utilisation de html2canvas pour créér une image PNG du bulletin de salaire.
+* Utilisation de jsPDF pour convertir cette image en fichier PDF imprimable.
 * Tests pour s'assurer que le site fonctionne comme prévu dans différents navigateurs et sur différentes tailles d'écran.
 
 --------
