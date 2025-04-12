@@ -81,6 +81,10 @@ body.dark-mode {
     color: var(--text-dark);
 }
 
+.final-text {
+    padding: 0;
+}
+
 .dark-mode .text-section h2 {
     color: var(--orange);
 }
@@ -124,9 +128,7 @@ body.dark-mode {
     transition: transform var(--transition-speed);
 }
 
-.hero-img:hover {
-    transform: scale(1.05);
-}
+
 
 /* Desktop hero adjustments */
 @media (min-width: 1024px) {
@@ -139,7 +141,7 @@ body.dark-mode {
 .button-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 2rem;
 }
 
 .button-grid {
@@ -189,7 +191,7 @@ body.dark-mode {
 
 .action-button:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .action-button:active::after {
