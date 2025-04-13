@@ -124,16 +124,16 @@ body.dark-mode {
 .hero-img {
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
+    object-fit: cover;
     transition: transform var(--transition-speed);
 }
 
 
 
 /* Desktop hero adjustments */
-@media (min-width: 1024px) {
+@media (min-width: 600px) {
     .hero-image {
-        max-height: 800px;
+        max-height: 1100px;
     }
 }
 
@@ -175,27 +175,16 @@ body.dark-mode {
     transition: all var(--transition-speed);
     position: relative;
     overflow: hidden;
-}
-
-.action-button::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
-    transform: scale(0);
-    transition: transform 0.5s;
-    top: 0;
-    left: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .action-button:hover {
-    transform: translateY(-5px);
+    transform: scale(1.03);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.action-button:active::after {
-    transform: scale(2);
+.dark-mode .action-button:hover {
+    box-shadow: 0 10px 10px rgba(131, 128, 128, 0.3);
 }
 
 .icon {
@@ -222,24 +211,5 @@ footer {
     background-color: var(--bg-dark);
     border-color: var(--orange);
     color: var(--orange);
-}
-
-/* Animation for scroll reveal */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.reveal {
-    opacity: 0;
-}
-
-.reveal.active {
-    animation: fadeInUp 0.6s ease-out forwards;
+    box-shadow: 0 10px 10px rgba(131, 128, 128, 0.1);
 }

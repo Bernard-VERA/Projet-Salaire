@@ -15,35 +15,3 @@ themeToggle.addEventListener('click', () => {
     themeIcon.textContent = isLight ? '🌙' : '🌞';
     localStorage.setItem('theme', isLight ? 'dark' : 'light');
 });
-
-// Scroll reveal animation
-const revealElements = document.querySelectorAll('.action-button');
-
-const reveal = () => {
-    revealElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (elementTop < windowHeight - 100) {
-            element.classList.add('reveal', 'active');
-        }
-    });
-};
-
-// Initial check for elements in view
-window.addEventListener('load', reveal);
-window.addEventListener('scroll', reveal);
-
-// Button ripple effect
-document.querySelectorAll('.action-button').forEach(button => {
-    button.addEventListener('click', function(e) {
-        const rect = this.getBoundingClientRect();
-        const ripple = document.createElement('div');
-        ripple.classList.add('ripple');
-        ripple.style.left = `${e.clientX - rect.left}px`;
-        ripple.style.top = `${e.clientY - rect.top}px`;
-        this.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 1000);
-    });
-});
