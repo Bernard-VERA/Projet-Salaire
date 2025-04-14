@@ -6,6 +6,7 @@
     <title>Bulletin de Salaire</title>
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="bulletin.css">
+    <link rel="stylesheet" href="style.css">
     <script src="csrf.js"></script><!-- SCRIPT DE PROTECTION CSRF--> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.js"></script><!--SCRIPT DE PROTECTION XSS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>    <!-- bibliothèque html2canvas pour convertir HTML en canvas -->
@@ -13,13 +14,22 @@
     <script src="bulletin.js"></script>
     <script src="generatePDF.js"></script>
 </head>
-<body>
-    <div class="container">
-        <header>
+<body class="light-mode">
+        <header class="banner">
+            <div class="theme-switch">
+                <button id="themeToggle" aria-label="Changer le thème">
+                    <span class="theme-icon">🌞</span>
+                </button>
+            </div>
+            <div class="title-container">
+                <h1>Générateur de bulletin de salaire</h1>
+                <h2>Style Pajemploi</h2>
+            </div>
         </header>
+    <div class="container">
         <main>
             <h1>Bulletin de Salaire</h1>
-            <h2>Pour parent employeur et assistant(e) maternel(le)</h2>
+            <h2>Attention ! Ce bulletin ne remplace en aucun cas le bulletin de salaire officiel de PAJEMPLOI</h2>
             <p class="instructions">Remplissez les cases de couleur bleue</p>
             <p class="instructions">Puis cliquez sur "Générer le bulletin"</p>
              <!-- Création de tous les champs de formulaires -->
@@ -193,13 +203,13 @@
                 <button id='generate-pdf'>Créér un PDF</button>
                 <div class="alternate-text">Impossible de créér un PDF en format mobile. Essayez de positionner votre écran en mode paysage.</div>
             </div>
-
         </main>
+    </div>
         <footer>
             <div class="copyright">
-                <span>Bernard VERA © 2025</span>
+                <span>© 2025 Générateur de bulletin de salaire</span>
             </div>
         </footer>
-    </div>
+    
 </body>
 </html>

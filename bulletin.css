@@ -27,6 +27,7 @@ body {
 .container {
     max-width: 800px;
     margin: auto;
+    margin-top: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -102,13 +103,7 @@ body {
     text-align: left;
 }
 
-footer {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 90px;
-}
+
 
 /* Responsive Design pour écrans de moins de 700px*/
 @media screen and (max-width: 700px) {
