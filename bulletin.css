@@ -65,11 +65,23 @@ main {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .dark-mode .form-group button {
     background-color: var(--orange);
-    color: var(--text-dark);
+    color: #000000;
+    font-weight: bold;
+    box-shadow: 0 10px 10px rgba(131, 128, 128, 0.1);
+}
+
+.form-group button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.dark-mode .form-group button:hover {
+    box-shadow: 0 10px 10px rgba(131, 128, 128, 0.3);
 }
 
 .fill {

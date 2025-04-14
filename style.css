@@ -183,6 +183,14 @@ body.dark-mode {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+/* Dark mode adjustments */
+.dark-mode .action-button {
+    background-color: var(--bg-dark);
+    border-color: var(--orange);
+    color: var(--orange);
+    box-shadow: 0 10px 10px rgba(131, 128, 128, 0.1);
+}
+
 .dark-mode .action-button:hover {
     box-shadow: 0 10px 10px rgba(131, 128, 128, 0.3);
 }
@@ -204,12 +212,4 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-}
-
-/* Dark mode adjustments */
-.dark-mode .action-button {
-    background-color: var(--bg-dark);
-    border-color: var(--orange);
-    color: var(--orange);
-    box-shadow: 0 10px 10px rgba(131, 128, 128, 0.1);
 }
