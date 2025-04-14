@@ -26,190 +26,191 @@
                 <h2>Style Pajemploi</h2>
             </div>
         </header>
-    <div class="container">
+    
         <main>
-            <h1>Bulletin de Salaire</h1>
-            <h2>Attention ! Ce bulletin ne remplace en aucun cas le bulletin de salaire officiel de PAJEMPLOI</h2>
-            <p class="instructions">Remplissez les cases de couleur bleue</p>
-            <p class="instructions">Puis cliquez sur "Générer le bulletin"</p>
-             <!-- Création de tous les champs de formulaires -->
-            <div class="form-group">
-                <label for="current-month">Mois en cours:</label>
-                <input type="text" id="current-month" name="current-month" class="fill" placeholder="Exemple: Janvier">
-            </div>
-            <div class="form-group">
-                <label for="current-year">Année en cours:</label>
-                <input type="text" id="current-year" name="current-year" class="fill" placeholder="Exemple: 2025">
-            </div>
-            <div class="form-group">
-                <label for="employer-name">Nom de l'employeur(se):</label>
-                <input type="text" id="employer-name" name="employer-name" class="fill" placeholder="Nom et prénom">
-            </div>
-            <div class="form-group">
-                <label for="employer-address">Adresse de l'employeur(se):</label>
-                <input type="text" id="employer-address" name="employer-address" class="fill">
-            </div>
-            <div class="form-group">
-                <label for="employer-number">Numéro de l'employeur(se):</label>
-                <input type="text" id="employer-number" name="employer-number" class="fill">
-            </div>
-            <div class="form-group">
-                <label for="employee-name">Nom de l'employé(e):</label>
-                <input type="text" id="employee-name" name="employee-name" class="fill" placeholder="Nom et prénom">
-            </div>
-            <div class="form-group">
-                <label for="employee-position">Poste de l'employé(e):</label>
-                <input type="text" id="employee-position" name="employee-position" class="fill">
-            </div>
-            <div class="form-group">
-                <label for="employee-number">Numéro de l'employé(e):</label>
-                <input type="text" id="employee-number" name="employee-number" class="fill">
-            </div>
-            <div class="form-group">
-                <label for="social-security">N° de SS de l'employé(e):</label>
-                <input type="text" id="social-security" name="social-security" class="fill">
-            </div>
-            <div class="form-group">
-                <label for="maintenance-allowance">indemnités d'entretien:</label>
-                <input type="text" id="maintenance-allowance" name="maintenance-allowance" class="fill" placeholder="Indemnités du mois">
-            </div>
-            <div class="form-group">
-                <label for="meal-allowance">indemnités de repas:</label>
-                <input type="text" id="meal-allowance" name="meal-allowance" class="fill" placeholder="Indemnités du mois">
-            </div>
-            <div class="form-group">
-                <label for="tax-rate">Taux d'imposition:</label>
-                <input type="text" id="tax-rate" name="tax-rate" class="fill" placeholder="Exemple: 1.5">
-            </div>
-            <div class="form-group">
-                <label for="gross-salary">Salaire Brut:</label>
-                <input type="number" id="gross-salary" name="gross-salary" class="fill" placeholder="Exemple: 978.56" oninput="calculateContributions()">
-            </div>
-           
-            
-            <div class="form-group">
-                <label for="net-salary">Salaire Net:</label>
-                <input type="number" id="net-salary" name="net-salary" readonly>
-            </div>
-
-            <div class="form-group no-show">
-                <label for="csg-rds-non-deductible">CSG + RDS non déductible:</label>
-                <input type="number" id="csg-rds-non-deductible" name="csg-rds-non-deductible" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="csg-deductible">CSG déductible:</label>
-                <input type="number" id="csg-deductible" name="csg-deductible" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="vieillesse">Vieillesse:</label>
-                <input type="number" id="vieillesse" name="vieillesse" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="maladie">Maladie:</label>
-                <input type="number" id="maladie" name="maladie" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="retraite">Retraite:</label>
-                <input type="number" id="retraite" name="retraite" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="prevoyance">Prévoyance:</label>
-                <input type="number" id="prevoyance" name="prevoyance" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="total-employee-contributions">Total Cotisations Salariales:</label>
-                <input type="number" id="total-employee-contributions" name="total-employee-contributions" readonly>
-            </div>
-
-            <div class="form-group no-show">
-                <label for="maladie-employer">Maladie (Employeur):</label>
-                <input type="number" id="maladie-employer" name="maladie-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="vieillesse-employer">Vieillesse (Employeur):</label>
-                <input type="number" id="vieillesse-employer" name="vieillesse-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="alloc-familiales-employer">Alloc. Familiales (Employeur):</label>
-                <input type="number" id="alloc-familiales-employer" name="alloc-familiales-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="accident-employer">Accident Travail (Employeur):</label>
-                <input type="number" id="accident-employer" name="accident-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="fnal-employer">Fnal (Employeur):</label>
-                <input type="number" id="fnal-employer" name="fnal-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="csa-employer">Csa (Employeur):</label>
-                <input type="number" id="csa-employer" name="csa-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="formation-employer">Formation professionnelle (Employeur):</label>
-                <input type="number" id="formation-employer" name="formation-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="dialogue-employer">Dialogue Social (Employeur):</label>
-                <input type="number" id="dialogue-employer" name="dialogue-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="complementaire-employer">Retraite complémentaire (Employeur):</label>
-                <input type="number" id="complementaire-employer" name="complementaire-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="prevoyance-employer">Prévoyance (Employeur):</label>
-                <input type="number" id="prevoyance-employer" name="prevoyance-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="chomage-employer">Assurance chômage (Employeur):</label>
-                <input type="number" id="chomage-employer" name="chomage-employer" readonly>
-            </div>
-            <div class="form-group no-show">
-                <label for="total-employer-contributions">Total Cotisations Employeur:</label>
-                <input type="number" id="total-employer-contributions" name="total-employer-contributions" readonly>
-            </div>
-
-            <div class="form-group">
-                <label for="allowance-net-salary">Salaire net + indemnités:</label>
-                <input type="number" id="allowance-net-salary" name="allowance-net-salary" readonly>
-            </div>
-            <div class="form-group">
-                <label for="taxable-salary">Salaire imposable:</label>
-                <input type="number" id="taxable-salary" name="taxable-salary" readonly>
-            </div>
-            <div class="form-group">
-                <label for="tax-lieved">Impôt prélevé:</label>
-                <input type="number" id="tax-lieved" name="tax-lieved" readonly>
-            </div>
-            <div class="form-group">
-                <label for="net-to-pay">Net à payer:</label>
-                <input type="number" id="net-to-pay" name="net-to-pay" readonly>
-            </div>
-            <!-- Création du bouton "Générer le Bulletin" -->
-            <div class="form-group">
-                <button onclick="generatePayslip()">Générer le Bulletin</button>
-            </div>
-
-            <div id="payslip">
-            </div>
-
-            <div class="form-group">
-                <div class="infos">
-                    <p class="instructions">Pour sauvegarder et imprimer le bulletin,</p>
-                    <p class="instructions">cliquez sur le bouton ci-dessous.</p>
+            <div class="container">    
+                <h2>Attention ! Ce bulletin ne remplace en aucun cas le bulletin de salaire officiel de PAJEMPLOI</h2>
+                <p class="instructions">Remplissez les cases de couleur grise</p>
+                <p class="instructions">Puis cliquez sur "Générer le bulletin"</p>
+                <!-- Création de tous les champs de formulaires -->
+                <div class="form-group">
+                    <label for="current-month">Mois en cours:</label>
+                    <input type="text" id="current-month" name="current-month" class="fill" placeholder="Exemple: Janvier">
                 </div>
-                <!-- Création du bouton "Créér un PDF" -->
-                <button id='generate-pdf'>Créér un PDF</button>
-                <div class="alternate-text">Impossible de créér un PDF en format mobile. Essayez de positionner votre écran en mode paysage.</div>
-            </div>
+                <div class="form-group">
+                    <label for="current-year">Année en cours:</label>
+                    <input type="text" id="current-year" name="current-year" class="fill" placeholder="Exemple: 2025">
+                </div>
+                <div class="form-group">
+                    <label for="employer-name">Nom de l'employeur(se):</label>
+                    <input type="text" id="employer-name" name="employer-name" class="fill" placeholder="Nom et prénom">
+                </div>
+                <div class="form-group">
+                    <label for="employer-address">Adresse de l'employeur(se):</label>
+                    <input type="text" id="employer-address" name="employer-address" class="fill">
+                </div>
+                <div class="form-group">
+                    <label for="employer-number">Numéro de l'employeur(se):</label>
+                    <input type="text" id="employer-number" name="employer-number" class="fill">
+                </div>
+                <div class="form-group">
+                    <label for="employee-name">Nom de l'employé(e):</label>
+                    <input type="text" id="employee-name" name="employee-name" class="fill" placeholder="Nom et prénom">
+                </div>
+                <div class="form-group">
+                    <label for="employee-position">Poste de l'employé(e):</label>
+                    <input type="text" id="employee-position" name="employee-position" class="fill">
+                </div>
+                <div class="form-group">
+                    <label for="employee-number">Numéro de l'employé(e):</label>
+                    <input type="text" id="employee-number" name="employee-number" class="fill">
+                </div>
+                <div class="form-group">
+                    <label for="social-security">N° de SS de l'employé(e):</label>
+                    <input type="text" id="social-security" name="social-security" class="fill">
+                </div>
+                <div class="form-group">
+                    <label for="maintenance-allowance">indemnités d'entretien:</label>
+                    <input type="text" id="maintenance-allowance" name="maintenance-allowance" class="fill" placeholder="Indemnités du mois">
+                </div>
+                <div class="form-group">
+                    <label for="meal-allowance">indemnités de repas:</label>
+                    <input type="text" id="meal-allowance" name="meal-allowance" class="fill" placeholder="Indemnités du mois">
+                </div>
+                <div class="form-group">
+                    <label for="tax-rate">Taux d'imposition:</label>
+                    <input type="text" id="tax-rate" name="tax-rate" class="fill" placeholder="Exemple: 1.5">
+                </div>
+                <div class="form-group">
+                    <label for="gross-salary">Salaire Brut:</label>
+                    <input type="number" id="gross-salary" name="gross-salary" class="fill" placeholder="Exemple: 978.56" oninput="calculateContributions()">
+                </div>
+            
+                
+                <div class="form-group">
+                    <label for="net-salary">Salaire Net:</label>
+                    <input type="number" id="net-salary" name="net-salary" readonly>
+                </div>
+
+                <div class="form-group no-show">
+                    <label for="csg-rds-non-deductible">CSG + RDS non déductible:</label>
+                    <input type="number" id="csg-rds-non-deductible" name="csg-rds-non-deductible" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="csg-deductible">CSG déductible:</label>
+                    <input type="number" id="csg-deductible" name="csg-deductible" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="vieillesse">Vieillesse:</label>
+                    <input type="number" id="vieillesse" name="vieillesse" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="maladie">Maladie:</label>
+                    <input type="number" id="maladie" name="maladie" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="retraite">Retraite:</label>
+                    <input type="number" id="retraite" name="retraite" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="prevoyance">Prévoyance:</label>
+                    <input type="number" id="prevoyance" name="prevoyance" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="total-employee-contributions">Total Cotisations Salariales:</label>
+                    <input type="number" id="total-employee-contributions" name="total-employee-contributions" readonly>
+                </div>
+
+                <div class="form-group no-show">
+                    <label for="maladie-employer">Maladie (Employeur):</label>
+                    <input type="number" id="maladie-employer" name="maladie-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="vieillesse-employer">Vieillesse (Employeur):</label>
+                    <input type="number" id="vieillesse-employer" name="vieillesse-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="alloc-familiales-employer">Alloc. Familiales (Employeur):</label>
+                    <input type="number" id="alloc-familiales-employer" name="alloc-familiales-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="accident-employer">Accident Travail (Employeur):</label>
+                    <input type="number" id="accident-employer" name="accident-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="fnal-employer">Fnal (Employeur):</label>
+                    <input type="number" id="fnal-employer" name="fnal-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="csa-employer">Csa (Employeur):</label>
+                    <input type="number" id="csa-employer" name="csa-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="formation-employer">Formation professionnelle (Employeur):</label>
+                    <input type="number" id="formation-employer" name="formation-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="dialogue-employer">Dialogue Social (Employeur):</label>
+                    <input type="number" id="dialogue-employer" name="dialogue-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="complementaire-employer">Retraite complémentaire (Employeur):</label>
+                    <input type="number" id="complementaire-employer" name="complementaire-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="prevoyance-employer">Prévoyance (Employeur):</label>
+                    <input type="number" id="prevoyance-employer" name="prevoyance-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="chomage-employer">Assurance chômage (Employeur):</label>
+                    <input type="number" id="chomage-employer" name="chomage-employer" readonly>
+                </div>
+                <div class="form-group no-show">
+                    <label for="total-employer-contributions">Total Cotisations Employeur:</label>
+                    <input type="number" id="total-employer-contributions" name="total-employer-contributions" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="allowance-net-salary">Salaire net + indemnités:</label>
+                    <input type="number" id="allowance-net-salary" name="allowance-net-salary" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="taxable-salary">Salaire imposable:</label>
+                    <input type="number" id="taxable-salary" name="taxable-salary" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="tax-lieved">Impôt prélevé:</label>
+                    <input type="number" id="tax-lieved" name="tax-lieved" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="net-to-pay">Net à payer:</label>
+                    <input type="number" id="net-to-pay" name="net-to-pay" readonly>
+                </div>
+                <!-- Création du bouton "Générer le Bulletin" -->
+                <div class="form-group">
+                    <button onclick="generatePayslip()">Générer le Bulletin</button>
+                </div>
+
+                <div id="payslip">
+                </div>
+
+                <div class="form-group">
+                    <div class="infos">
+                        <p class="instructions">Pour sauvegarder et imprimer le bulletin,</p>
+                        <p class="instructions">cliquez sur le bouton ci-dessous.</p>
+                    </div>
+                    <!-- Création du bouton "Créér un PDF" -->
+                    <button id='generate-pdf'>Créér un PDF</button>
+                    <div class="alternate-text">Impossible de créér un PDF en format mobile. Essayez de positionner votre écran en mode paysage.</div>
+                </div>
+            </div>    
         </main>
-    </div>
+    
         <footer>
             <div class="copyright">
                 <span>© 2025 Générateur de bulletin de salaire</span>
             </div>
         </footer>
-    
+        <script src="script.js"></script>
 </body>
 </html>
