@@ -1,12 +1,9 @@
-.return-icon {
-    position: absolute;
-    top: 5.5rem;
-    left: 1rem;
-}
-
 .return-icon img {
-    width: 48px;
-    height: 48px
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 5.8rem;
+    left: 1rem;
 }
 
 h1 {
