@@ -260,7 +260,7 @@ function generatePayslip() {
     
     // Génère le contenu du bulletin de salaire avec les informations récupérées
     const payslip = `
-        <h2>Bulletin de Salaire</h2>
+        <h3>Bulletin de Salaire</h3>
         <div class="employgroup">
             <div class="groupbox">
                 <p>Employeur(se) : ${employerName}</p>
