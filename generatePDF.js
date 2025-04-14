@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Convertit le canvas en image au format PNG
             const pdf = new jsPDF();
             // Crée un nouveau document PDF
-            const imgWidth = 150; 
+            const imgWidth = 145; 
             // Largeur de l'image en mm (Ici on peut ajuster selon les besoins)
             const pageWidth = pdf.internal.pageSize.getWidth();
             // Obtient la largeur de la page PDF
