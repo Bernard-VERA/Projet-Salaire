@@ -19,7 +19,7 @@ Un bulletin de salaire simple, réalisé en HTML, CSS et JavaScript. Une interfa
 
 ## Compétences 
  
-La création de cette page web me permettra d’améliorer mes compétences techniques et logiques :
+La création de cette page web m'a permis d’améliorer mes compétences techniques et logiques :
 
 
 * Création d'une page d'accueil intuitive et conviviale.
@@ -34,7 +34,7 @@ La création de cette page web me permettra d’améliorer mes compétences tech
 * Mise en place d'un jeton CSRF unique dans le local storage, pour la sécurité.
 * Validation des champs des formulaires et messages d'erreur personnalisés.
 * Utilisation de html2canvas pour créér une image PNG du bulletin de salaire.
-* Utilisation de jsPDF pour convertir cette image en fichier PDF imprimable.
+* Utilisation de jsPDF pour convertir cette image en fichier PDF imprimable, au format A4.
 * Format responsive (Mobile, tablette et desktop).
 * Validation W3C html et css, améliorations pour Lighthouse et Wave.
 * Tests pour s'assurer que le site fonctionne comme prévu dans différents navigateurs et sur différentes tailles d'écran.
