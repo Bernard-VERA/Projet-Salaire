@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulletin de Salaire</title>
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="bulletin.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="csrf.js"></script><!-- SCRIPT DE PROTECTION CSRF--> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.js"></script><!--SCRIPT DE PROTECTION XSS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>    <!-- bibliothèque html2canvas pour convertir HTML en canvas -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script><!-- bibliothèque jsPDF pour générer des fichiers PDF -->
-    <script src="bulletin.js"></script>
-    <script src="generatePDF.js"></script>
-</head>
-<body class="light-mode">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bulletin de Salaire</title>
+        <meta name="description" content="Générez facilement votre bulletin de salaire Pajemploi en quelques clics. Un outil simple et intuitif pensé pour les parents employeurs et assistantes maternelles.">
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="bulletin.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+        <script src="csrf.js"></script><!-- SCRIPT DE PROTECTION CSRF--> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.js" defer></script><!--SCRIPT DE PROTECTION XSS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js" defer></script>    <!-- bibliothèque html2canvas pour convertir HTML en canvas -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" defer></script><!-- bibliothèque jsPDF pour générer des fichiers PDF -->
+        <script src="bulletin.js" defer></script>
+        <script src="generatePDF.js" defer></script>
+    </head>
+    <body class="light-mode">
         <header class="banner">
             <div class="return-icon">
                 <a href="index.html" class="return-icon">
@@ -29,10 +31,8 @@
             <div class="title-container">
                 <h1>Générateur de bulletin de salaire</h1>
                 <h2>Style Pajemploi</h2>
-            </div>
-            
+            </div>  
         </header>
-    
         <main>
             <div class="container">    
                 <h2>Attention ! Ce bulletin ne remplace en aucun cas le bulletin de salaire officiel de PAJEMPLOI</h2>
@@ -211,12 +211,10 @@
                 </div>
             </div>    
         </main>
-    
         <footer>
             <div class="copyright">
                 <span>© 2025 Générateur de bulletin de salaire</span>
             </div>
-        </footer>
-        <script src="script.js"></script>
-</body>
+        </footer>   
+    </body>
 </html>
