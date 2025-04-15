@@ -55,7 +55,7 @@ main {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
-    border: 1px solid var(--blue);  
+    border: 1px solid var(--blue); 
 }
 
 .form-group button {
@@ -85,7 +85,19 @@ main {
 }
 
 .fill {
-    background-color: #c4bebefe;
+    background-color:#e8f0fe ;
+}
+
+.dark-mode .fill {
+    background-color:#f3ceb6 ;
+}
+
+input:focus {
+    outline-color: var(--blue);
+}
+
+.dark-mode input:focus {
+    outline-color: var(--orange);
 }
 
 .no-show {
