@@ -115,8 +115,7 @@ body.dark-mode {
 
 /* Hero image */
 .hero-image {
-    width: 100%;
-    max-height: 400px;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     margin: 2rem 0;
 }
@@ -125,15 +124,6 @@ body.dark-mode {
     width: 100%;
     height: auto;
     object-fit: cover;
-}
-
-
-
-/* Ajustement du hero en Desktop  */
-@media (min-width: 600px) {
-    .hero-image {
-        max-height: 1100px;
-    }
 }
 
 /* Liens externes */
