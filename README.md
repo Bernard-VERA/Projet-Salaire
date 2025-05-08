@@ -48,5 +48,5 @@ Vous pouvez voir le projet fonctionnel à l'adresse suivante : https://bernard-v
 
 
 <p align="center" width="100%">
-    <img width="90%" src="https://github.com/Bernard-VERA/Projet-Salaire/blob/main/images/salaire.jpg"> 
+    <img width="90%" src="https://github.com/Bernard-VERA/Projet-Salaire/blob/main/images/image-github.jpg"> 
 </p>
