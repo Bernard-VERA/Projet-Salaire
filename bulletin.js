@@ -137,16 +137,17 @@ function calculateContributions() {
 
     // Taux de cotisations patronales pour 2025
     const employerMaladieRate = 0.13
-    const employerVieillesseRate = 0.1057;
+    const employerVieillesseRate = 0.1066;
     const employerFamilleRate = 0.0525;
-    const employerAccidentRate = 0.0079;
+    const employerAccidentRate = 0.0091;
     const employerFnalRate = 0.001;
     const employerCsaRate = 0.003;
     const employerFormationRate = 0.0085;
     const employerDialogueRate = 0.00016;
+    const employerCstRate = 0.0270;
     const employerComplementaireRate = 0.0601;
     const employerPrevoyanceRate = 0.0245;
-    const employerChomageRate = 0.0405
+    const employerChomageRate = 0.0400
   
     // Calcul de la base de salaire brut déductible
     const grossSalaryBaseDeductible = grossSalary * 0.9825
@@ -168,13 +169,15 @@ function calculateContributions() {
     const employerCsa = grossSalary * employerCsaRate;
     const employerFormation = grossSalary * employerFormationRate;
     const employerDialogue = grossSalary * employerDialogueRate;
+    const employerCstRaw = grossSalary * employerCstRate;
+    const employerCst = Math.min(employerCstRaw, 5);
     const employerComplementaire = grossSalary * employerComplementaireRate;
     const employerPrevoyance = grossSalary * employerPrevoyanceRate;
     const employerChomage = grossSalary * employerChomageRate;
 
     // Calcul du total des cotisations salariales et patronales
     const totalEmployeeContributions = csgRdsNonDeductible + csgDeductible + vieillesse + maladie + retraite + prevoyance;
-    const totalEmployerContributions = employerMaladie + employerVieillesse + employerAllocFamiliales + employerAccident + employerFnal + employerCsa + employerFormation + employerDialogue + employerComplementaire + employerPrevoyance + employerChomage;
+    const totalEmployerContributions = employerMaladie + employerVieillesse + employerAllocFamiliales + employerAccident + employerFnal + employerCsa + employerFormation + employerDialogue + employerCst + employerComplementaire + employerPrevoyance + employerChomage;
     
     // Calcul du salaire net et du salaire avec les indemnités
     const netSalary = grossSalary - totalEmployeeContributions;
@@ -202,6 +205,7 @@ function calculateContributions() {
     document.getElementById('csa-employer').value = employerCsa.toFixed(2);
     document.getElementById('formation-employer').value = employerFormation.toFixed(2);
     document.getElementById('dialogue-employer').value = employerDialogue.toFixed(2);
+    document.getElementById('cst-employer').value = employerCst.toFixed(2);
     document.getElementById('complementaire-employer').value = employerComplementaire.toFixed(2);
     document.getElementById('prevoyance-employer').value = employerPrevoyance.toFixed(2);
     document.getElementById('chomage-employer').value = employerChomage.toFixed(2);
@@ -246,6 +250,7 @@ function generatePayslip() {
     const employerCsa = document.getElementById('csa-employer').value;
     const employerFormation = document.getElementById('formation-employer').value;
     const employerDialogue = document.getElementById('dialogue-employer').value;
+    const employerCst = document.getElementById('cst-employer').value;
     const employerComplementaire = document.getElementById('complementaire-employer').value;
     const employerPrevoyance = document.getElementById('prevoyance-employer').value;
     const employerChomage = document.getElementById('chomage-employer').value;
@@ -293,6 +298,7 @@ function generatePayslip() {
             <p>CSA : <span style="float: right;">${employerCsa} €</span></p>
             <p>Formation professionnelle : <span style="float: right;">${employerFormation} €</span></p>
             <p>Dialogue social : <span style="float: right;">${employerDialogue} €</span></p>
+            <p>CST : <span style="float: right;">${employerCst} €</span></p>
             <p>Retraite complémentaire : <span style="float: right;">${employerComplementaire} €</span></p>
             <p>Prévoyance : <span style="float: right;">${employerPrevoyance} €</span></p>
             <p>Assurance chômage : <span style="float: right;">${employerChomage} €</span></p>
