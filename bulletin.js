@@ -169,8 +169,8 @@ function calculateContributions() {
     const employerCsa = grossSalary * employerCsaRate;
     const employerFormation = grossSalary * employerFormationRate;
     const employerDialogue = grossSalary * employerDialogueRate;
-    const employerCstRaw = grossSalary * employerCstRate;
-    const employerCst = Math.min(employerCstRaw, 5);
+    const employerCstRaw = grossSalary * employerCstRate; // nouvelle cotisation en 2026 : Contribution Santé Travail
+    const employerCst = Math.min(employerCstRaw, 5); // taux de 2,7 % mais plafonné à 5 euros par bulletin de salaire
     const employerComplementaire = grossSalary * employerComplementaireRate;
     const employerPrevoyance = grossSalary * employerPrevoyanceRate;
     const employerChomage = grossSalary * employerChomageRate;
@@ -298,7 +298,7 @@ function generatePayslip() {
             <p>CSA : <span style="float: right;">${employerCsa} €</span></p>
             <p>Formation professionnelle : <span style="float: right;">${employerFormation} €</span></p>
             <p>Dialogue social : <span style="float: right;">${employerDialogue} €</span></p>
-            <p>CST : <span style="float: right;">${employerCst} €</span></p>
+            <p>Santé Travail : <span style="float: right;">${employerCst} €</span></p>
             <p>Retraite complémentaire : <span style="float: right;">${employerComplementaire} €</span></p>
             <p>Prévoyance : <span style="float: right;">${employerPrevoyance} €</span></p>
             <p>Assurance chômage : <span style="float: right;">${employerChomage} €</span></p>
