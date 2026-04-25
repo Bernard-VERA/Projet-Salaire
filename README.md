@@ -7,6 +7,7 @@
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![image](https://img.shields.io/badge/VERCEL-lightgrey?style=for-the-badge&logo=vercel&logoColor=white)
 
 --------
 
@@ -38,11 +39,12 @@ La création de cette page web m'a permis d’améliorer mes compétences techni
 * Format responsive (Mobile, tablette et desktop).
 * Validation W3C html et css, améliorations pour Lighthouse et Wave.
 * Tests pour s'assurer que le site fonctionne comme prévu dans différents navigateurs et sur différentes tailles d'écran.
+* Mise en place d'une CSP et de Headers de sécurité, déploiement sur VERCEL.
 
 --------
 
 
-Vous pouvez voir le projet fonctionnel à l'adresse suivante : https://bernard-vera.github.io/Projet-Salaire/
+Vous pouvez voir le projet fonctionnel à l'adresse suivante : https://bulletin-salaire.vercel.app/
 
 --------
 
