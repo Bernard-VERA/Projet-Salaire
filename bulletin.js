@@ -47,8 +47,8 @@ function validateFields() {
     if (!socialSecurity) {
         showError('social-security', 'Le numéro de sécurité sociale est requis');
         isValid = false;
-    } else if (!/^\d{15}$/.test(socialSecurity)) {
-        showError('social-security', 'Le numéro de sécurité sociale doit contenir 15 chiffres');
+    } else if (!/^\d{13}$/.test(socialSecurity)) {
+        showError('social-security', 'Le numéro de sécurité sociale doit contenir 13 chiffres');
         isValid = false;
     }
 
