@@ -219,6 +219,7 @@ function calculateContributions() {
     document.getElementById('net-to-pay').value = netToPay.toFixed(2);
 }
 
+
 function generatePayslip() {
     if (!validateFields()) {
         return; // Arrête la génération si la validation échoue
@@ -325,3 +326,6 @@ function generatePayslip() {
     // Met à jour le contenu de l'élément avec l'ID 'payslip' avec le bulletin de salaire généré
     document.getElementById('payslip').innerHTML = DOMPurify.sanitize(payslip);
 }   // DOMPurify sécurise le contenu généré pour protéger des attaques XSS
+
+document.getElementById("generatePayslipBtn")
+        .addEventListener("click", generatePayslip);
