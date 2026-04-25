@@ -329,3 +329,11 @@ function generatePayslip() {
 
 document.getElementById("generatePayslipBtn")
         .addEventListener("click", generatePayslip);
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const grossSalaryInput = document.getElementById("gross-salary");
+    if (grossSalaryInput) {
+        grossSalaryInput.addEventListener("input", calculateContributions);
+    }
+});
+    
